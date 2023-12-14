@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
     <title>Tutorial of JPA</title>
 </head>
+
 <body>
     <h1>Country一覧</h1>
     <table>
@@ -16,7 +18,14 @@
             <td th:text="${data.code}"></td>
             <td th:text="${data.name}"></td>
             <td th:text="${data.population}"></td>
+
+            <!--/*ここから課題追加*/-->
+            <td><a th:href="@{detail(code=${code})}"><span th:text="詳細"></span></a></td>
+            <td><a th:href="@{delete(code=${code})}"><span th:text="削除"></span></a></td>
+            <!--/*ここまで課題追加*/-->
+
         </tr>
     </table>
 </body>
+
 </html>

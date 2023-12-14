@@ -49,12 +49,8 @@ public class CountryController {
         return "redirect:/country/list";
     }
 
-    // ----- 削除画面 -----
-    @GetMapping("/delete")
-    public String deleteCountryForm(Model model) {
-        // country/delete.htmlに画面遷移
-        return "country/delete";
-    }
+    // ----- 課題で削除 -----
+
 
     // ----- 削除 -----
     @PostMapping("/delete")
@@ -66,4 +62,14 @@ public class CountryController {
         return "redirect:/country/list";
     }
     // ----- 追加:ここまで -----
+
+    // ----- !ここから課題追加! -----
+    @GetMapping("/delete")
+    public String getInput(@RequestParam(name = "code", required = false) String code, Model model) {
+        // getInputメソッドでdelete画面への遷移を行う
+        model.addAttribute("code", code);
+        // delete/{code}.htmlに画面遷移
+        return "country/delete";
+    }
+
 }

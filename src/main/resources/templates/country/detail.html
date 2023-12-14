@@ -11,8 +11,10 @@
             <tr><th>コード</th><td><input type="text" name="code" th:value="*{code}"></td></tr>
             <tr><th>国名</th><td><input type="text" name="name" th:value="*{name}"></td></tr>
             <tr><th>人口</th><td><input type="text" name="population" th:value="*{population}"></td></tr>
+
         </table>
         <button type="submit">送信</button>
+               <span><a th:href="@{list}"> <span th:text="一覧に戻る"></span></a></span> <!--/*課題追加*/-->
     </form>
 </body>
 </html>
