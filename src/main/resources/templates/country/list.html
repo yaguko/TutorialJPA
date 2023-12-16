@@ -20,8 +20,8 @@
             <td th:text="${data.population}"></td>
 
             <!--/*ここから課題追加*/-->
-            <td><a th:href="@{detail(code=${code})}"><span th:text="詳細"></span></a></td>
-            <td><a th:href="@{delete(code=${code})}"><span th:text="削除"></span></a></td>
+            <td><a th:href="@{/country/detail/{code}/(code=${data.code})}"><span th:text="詳細"></span></a></td>
+            <td><a th:href="@{/country/delete/{code}/(code=${data.code})}"><span th:text="削除"></span></a></td>
             <!--/*ここまで課題追加*/-->
 
         </tr>

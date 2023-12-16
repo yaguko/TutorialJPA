@@ -63,13 +63,18 @@ public class CountryController {
     }
     // ----- 追加:ここまで -----
 
+
     // ----- !ここから課題追加! -----
-    @GetMapping("/delete")
-    public String getInput(@RequestParam(name = "code", required = false) String code, Model model) {
-        // getInputメソッドでdelete画面への遷移を行う
-        model.addAttribute("code", code);
-        // delete/{code}.htmlに画面遷移
+    @GetMapping(value = { "/delete", "/delete/{code}/" })
+    public String getInput(@PathVariable(name = "code", required = false) String code, Model model) {
+        Country country = code != null ? service.getCountry(code) : new Country();
+        // Modelに登録
+        model.addAttribute("country", country);
+        // country/detail.htmlに画面遷移
         return "country/delete";
+
     }
+
+
 
 }
