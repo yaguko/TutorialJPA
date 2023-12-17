@@ -39,7 +39,7 @@ public class CountryController {
     }
 
     // ----- 更新（追加） -----
-    @PostMapping("/detail")
+    @PostMapping(value = { "/detail", "/detail/{code}/" })
     public String postCountry(@RequestParam("code") String code, @RequestParam("name") String name,
             @RequestParam("population") int population, Model model) {
         // 更新（追加）
@@ -53,7 +53,7 @@ public class CountryController {
 
 
     // ----- 削除 -----
-    @PostMapping("/delete")
+    @PostMapping(value = { "/delete", "/delete/{code}/" })
     public String deleteCountry(@RequestParam("code") String code, Model model) {
         // 削除
         service.deleteCountry(code);
@@ -74,7 +74,5 @@ public class CountryController {
         return "country/delete";
 
     }
-
-
 
 }
